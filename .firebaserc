@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "lunchbox-60fb5",
+    "staging": "lunchbox-60fb5"
+  },
+  "targets": {},
+  "etags": {}
+}

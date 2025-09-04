@@ -1,0 +1,20 @@
+{
+  "name": "lunchbox-2815d",
+  "version": "1.0.0",
+  "description": "LunchBox for SICTC",
+  "main": "index.js",
+  "scripts": {
+    "start": "your-start-script",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase": "^9.6.4"
+  },
+  "devDependencies": {
+
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "private": true
+}

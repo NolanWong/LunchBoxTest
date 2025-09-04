@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The LunchBox - Menu</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="alertStyle.css">
+    <script src="alertScript.js" defer></script>
+    <script src="https://kit.fontawesome.com/2bb903859e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="content/favicon.png">
+    <script type="module">
+        //imports and configs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+        document.addEventListener("DOMContentLoaded", function () {
+            const firebaseConfig = {
+                apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+                authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+                projectId: "lunchboxweb-7b9c1",
+                storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+                messagingSenderId: "160202746545",
+                appId: "1:160202746545:web:087529c4e7432a91329090",
+                measurementId: "G-C2E1SK93M1"
+            };
+            //initialize firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const menuCollectionRef = collection(db, 'menu');
+            //create a query to get the most recent menu document
+            const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
+            //set up the snapshot listener
+            onSnapshot(queryRef, updateMenu);
+            //function to update the menu
+            function updateMenu(snapshot) {
+                if (!snapshot.empty) {
+                    const mostRecentDocument = snapshot.docs[0];
+                    const menuDocument = mostRecentDocument.data();
+                    //update the HTML 
+                    updateMenuItem('date1', 'tuesday_date');
+                    updateMenuItem('entree1', 'tuesday_entree');
+                    updateMenuItem('soup1', 'tuesday_soup');
+                    updateMenuItem('salad1', 'tuesday_salad');
+                    updateMenuItem('side1', 'tuesday_side');
+                    updateMenuItem('dessert1', 'tuesday_dessert');
+                    updateMenuItem('closed1', 'tuesday_closed');
+                    // updateMenuItem('date2', 'wednesday_date');
+                    // updateMenuItem('entree2', 'wednesday_entree');
+                    // updateMenuItem('soup2', 'wednesday_soup');
+                    // updateMenuItem('salad2', 'wednesday_salad');
+                    // updateMenuItem('side2', 'wednesday_side');
+                    // updateMenuItem('dessert2', 'wednesday_dessert');
+                    // updateMenuItem('closed2', 'wednesday_closed');
+                    updateMenuItem('date3', 'thursday_date');
+                    updateMenuItem('entree3', 'thursday_entree');
+                    updateMenuItem('soup3', 'thursday_soup');
+                    updateMenuItem('salad3', 'thursday_salad');
+                    updateMenuItem('side3', 'thursday_side');
+                    updateMenuItem('dessert3', 'thursday_dessert');
+                    updateMenuItem('closed3', 'thursday_closed');
+
+                    //update all items
+                    function updateMenuItem(elementId, dataKey) {
+                        if (menuDocument[dataKey] !== undefined) {
+                            document.getElementById(elementId).innerText = menuDocument[dataKey];
+                        } 
+                        else {
+                            console.error(`${dataKey} is undefined in menuDocument`);
+                        }
+                    }
+                } 
+                else {
+                    console.log('No documents found in the "menu" collection.');
+                }
+            }
+        });
+    </script>
+    <script>
+        function submitForm() {
+            document.getElementById('emailBTN').innerHTML='Upload In Progress'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxyb8Frl0Xz0HSOiKCXXRJTS3GMdKcbTESyzkcIIbz3lhWw4ZK3QqGsEVANXNYdOJc/exec'
+            const form = document.forms['submit-to-google-sheet']
+            form.addEventListener('submit', e => {
+                document.getElementById('emailBTN')
+                console.log(document.getElementById('email').value.length)
+                if (document.getElementById('email').value.length!=0){
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
+                        //alert('Success!', response)
+                        document.getElementById('email').value="";
+                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                    })    
+                    .catch(error => {
+                        alert('Error!', error.message)
+                        document.getElementById('email').value="";
+                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                    })
+                }
+                else{
+                    customAlert.alert('Please be sure to add your email!','Sign Up Error')
+                    document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                }
+            })
+          }
+    </script>
+</head>
+<body>
+<nav>
+    <div id="logo-container">
+        <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen2.png" alt="lunchboxLogoHorizontal"></a>
+    </div>
+    <!-- <div id="links-container">
+        <a href="index.html">MENU</a> 
+    </div> -->
+    <form name='submit-to-google-sheet' class="form-EMAIL" id="signUpForm">
+        <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;margin-left:4em">
+        <button id="emailBTN" type="submit" onclick="submitForm()">Get Weekly Email!</button>
+    </form>
+</nav>
+<main>
+    <div id="summerhero"></div>
+<!--     <div id="winterhero"></div> -->
+<!--     <div id="springhero"></div> -->
+    <div class="menu-container">
+            <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">TUESDAY</h1>
+                <h1 id="closed1" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date1" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div> 
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div>
+            <!-- <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">WEDNESDAY</h1>
+                <h1 id="closed2" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date2" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div> 
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div> -->
+            <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">THURSDAY</h1>
+                <h1 id="closed3" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date3" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div>
+    </div>
+    <div class="card-container-WHATSINCLUDED">
+        <div class="card-WHATSINCLUDED">
+            <h2>What's Included In An $8 Meal?</h2>
+            <ul>
+            <li><span class="info-label-WHATSINCLUDED">Entree (1 portion)</span></li>
+            <li><span class="info-label-WHATSINCLUDED">Sides (Choose 2) (Soups & Salads are considered a side)</span></li>
+            <li><span class="info-label-WHATSINCLUDED">Dessert (Your choice of 1)</span></li>
+            <li><span class="info-label-WHATSINCLUDED">Dinner Roll (1 roll)</span></li>
+            <li><span class="info-label-WHATSINCLUDED">Drink (Unsweetened Tea, Lemonade, or Water)</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-container-COMMON">
+        <div class="card-COMMON">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="360" height="314" viewBox="0 0 360 314" fill="none">
+                <path d="M351.577 0C351.577 0.828427 352.249 1.5 353.077 1.5H358.5V7.13672C358.5 7.96499 359.172 8.63672 360 8.63672V19.9092C359.172 19.9092 358.5 20.5808 358.5 21.4092V35.6816C358.5 36.5101 359.172 37.1816 360 37.1816V48.4551C359.172 48.4551 358.5 49.1267 358.5 49.9551V64.2275C358.5 65.0559 359.172 65.7275 360 65.7275V77C359.172 77 358.5 77.6716 358.5 78.5V92.7725C358.5 93.6009 359.172 94.2725 360 94.2725V105.546C359.172 105.546 358.5 106.217 358.5 107.046V121.318C358.5 122.147 359.172 122.818 360 122.818V134.091C359.172 134.091 358.5 134.762 358.5 135.591V149.863C358.5 150.692 359.172 151.363 360 151.363V162.637C359.172 162.637 358.5 163.308 358.5 164.137V178.409C358.5 179.238 359.172 179.909 360 179.909V191.182C359.172 191.182 358.5 191.853 358.5 192.682V206.954C358.5 207.783 359.172 208.454 360 208.454V219.728C359.172 219.728 358.5 220.399 358.5 221.228V235.5C358.5 236.328 359.172 237 360 237V248.272C359.172 248.272 358.5 248.944 358.5 249.772V264.046C358.5 264.874 359.172 265.546 360 265.546V276.818C359.172 276.818 358.5 277.49 358.5 278.318V292.591C358.5 293.419 359.172 294.091 360 294.091V305.363C359.172 305.363 358.5 306.035 358.5 306.863V312.5H353.5C352.672 312.5 352 313.172 352 314H342C342 313.172 341.328 312.5 340.5 312.5H327.5C326.672 312.5 326 313.172 326 314H316C316 313.172 315.328 312.5 314.5 312.5H301.5C300.672 312.5 300 313.172 300 314H290C290 313.172 289.328 312.5 288.5 312.5H275.5C274.672 312.5 274 313.172 274 314H264C264 313.172 263.328 312.5 262.5 312.5H249.5C248.672 312.5 248 313.172 248 314H238C238 313.172 237.328 312.5 236.5 312.5H223.5C222.672 312.5 222 313.172 222 314H212C212 313.172 211.328 312.5 210.5 312.5H197.5C196.672 312.5 196 313.172 196 314H186C186 313.172 185.328 312.5 184.5 312.5H170.583C169.755 312.5 169.083 313.172 169.083 314H157.25C157.25 313.172 156.578 312.5 155.75 312.5H140.917C140.089 312.5 139.417 313.172 139.417 314H127.583C127.583 313.172 126.911 312.5 126.083 312.5H111.25C110.422 312.5 109.75 313.172 109.75 314H97.917C97.917 313.172 97.2453 312.5 96.417 312.5H81.583C80.7547 312.5 80.083 313.172 80.083 314H68.25C68.25 313.172 67.5784 312.5 66.75 312.5H51.917C51.0886 312.5 50.417 313.172 50.417 314H38.583C38.583 313.172 37.9114 312.5 37.083 312.5H22.25C21.4216 312.5 20.75 313.172 20.75 314H8.91699C8.91699 313.172 8.24527 312.5 7.41699 312.5H1.5V306.863C1.49981 306.035 0.828313 305.363 0 305.363V294.091C0.828427 294.091 1.5 293.419 1.5 292.591V278.318C1.5 277.49 0.828427 276.818 0 276.818V265.545C0.828427 265.545 1.5 264.873 1.5 264.045V249.772C1.49988 248.944 0.828355 248.272 0 248.272V237C0.776651 237 1.41537 236.41 1.49219 235.653L1.5 235.5V221.228C1.5 220.399 0.828427 219.728 0 219.728V208.454C0.828427 208.454 1.5 207.783 1.5 206.954V192.682C1.49992 191.853 0.828379 191.182 0 191.182V179.909C0.776627 179.909 1.41534 179.319 1.49219 178.562L1.5 178.409V164.137C1.5 163.308 0.828427 162.637 0 162.637V151.363C0.828427 151.363 1.5 150.692 1.5 149.863V135.591C1.49995 134.762 0.828397 134.091 0 134.091V122.818C0.776606 122.818 1.41531 122.228 1.49219 121.472L1.5 121.318V107.046C1.5 106.217 0.828427 105.546 0 105.546V94.2725C0.828427 94.2725 1.5 93.6009 1.5 92.7725V78.5C1.5 77.6716 0.828427 77 0 77V65.7275C0.776573 65.7275 1.41527 65.1371 1.49219 64.3809L1.5 64.2275V49.9541C1.49976 49.1259 0.828279 48.4541 0 48.4541V37.1816C0.828427 37.1816 1.5 36.5101 1.5 35.6816V21.4092C1.5 20.5808 0.828427 19.9092 0 19.9092V8.63672C0.776543 8.63672 1.41523 8.04627 1.49219 7.29004L1.5 7.13672V1.5H6.92285C7.75128 1.5 8.42285 0.828427 8.42285 0H19.2695C19.2695 0.828427 19.9411 1.5 20.7695 1.5H34.6152C35.4437 1.5 36.1152 0.828427 36.1152 0H46.9619C46.9619 0.828427 47.6335 1.5 48.4619 1.5H62.3076C63.0843 1.5 63.723 0.90972 63.7998 0.15332L63.8076 0H74.6533C74.6533 0.828277 75.3251 1.49976 76.1533 1.5H90C90.7766 1.49997 91.4154 0.909705 91.4922 0.15332L91.5 0H102.346C102.346 0.828295 103.017 1.49979 103.846 1.5H117.692C118.469 1.49993 119.108 0.909684 119.185 0.15332L119.192 0H130.038C130.038 0.828321 130.71 1.49983 131.538 1.5H145.385C146.161 1.4999 146.8 0.909669 146.877 0.15332L146.885 0H157.73C157.73 0.828339 158.402 1.49986 159.23 1.5H173.077C173.854 1.49987 174.493 0.909653 174.569 0.15332L174.577 0H185.423C185.423 0.828361 186.095 1.49989 186.923 1.5H200.77C201.546 1.49984 202.185 0.909635 202.262 0.15332L202.27 0H213.115C213.115 0.828383 213.787 1.49993 214.615 1.5H228.462C229.238 1.49981 229.877 0.909617 229.954 0.15332L229.962 0H240.808C240.808 0.828402 241.479 1.49996 242.308 1.5H256.154C256.931 1.49977 257.57 0.909599 257.646 0.15332L257.654 0H268.5C268.5 0.828427 269.172 1.5 270 1.5H283.846C284.674 1.5 285.346 0.828427 285.346 0H296.192C296.192 0.828427 296.864 1.5 297.692 1.5H311.538C312.367 1.5 313.038 0.828427 313.038 0H323.885C323.885 0.828427 324.556 1.5 325.385 1.5H339.23C340.059 1.5 340.73 0.828427 340.73 0H351.577Z" stroke="#446198" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 14"/>
+            </svg> -->
+            <h2>About</h2>
+            <p>Opening Hours: 10:15 AM - 1:00 PM</p>
+            <p>Availability: Open to the public</p>
+            <p>Location: Please enter through the main entrance at SICTC, and the restaurant is located at the third door on the left.</p>
+            <p><a src="https://docs.google.com/forms/d/e/1FAIpQLSesKeiuhUK01citbYRUrUXX5Tfmcz4_7lTJX2t-28Cchk6cGw/viewform?usp=header">Reservations: Requested for groups of 6 and larger</a></p>
+        </div>
+        <div class="card-COMMON">
+            <h2>Accepted Payments</h2>
+            <p>
+                <img style="width:auto;height:150px;margin-right: 50px;" src="content/NoCard.png" alt="noCard">
+                <img style="width:auto;height:150px;" src="content/Cash.png" alt="noCard">
+                <br><br><span class="info-label payments" style="margin-right: 100px;">No Card</span>
+                <span class="info-label payments">Cash Only</span>
+            </p>
+        </div>
+        <div class="card-COMMON">
+            <h2>A La Carte</h2>
+            <p><span class="info-label">Entree:</span> $3.00</p>
+            <p><span class="info-label">Sides and Desserts:</span> $2.00</p>
+            <p><span class="info-label">Cookie:</span> $1.00</p>
+            <p><span class="info-label">Dinner Roll:</span> $.50</p>
+        </div>
+    </div>
+</main>
+<footer>
+    Maintained & Built by SICTC Computer Science Software Development <br>
+    The LunchBox <br>
+    1901 Lynch Rd, Evansville, IN 47711 <br>
+    <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:500px;height:85px;" alt="footerSICTC"></a>
+</footer>
+</body>
+</html>
+
