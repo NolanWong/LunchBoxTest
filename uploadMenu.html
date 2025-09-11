@@ -22,8 +22,6 @@
                 measurementId: "G-C2E1SK93M1"
                 };
                 const app = initializeApp(firebaseConfig);
-                const provider = new GoogleAuthProvider();
-                provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
                 const db = getFirestore(app);
                 const auth = getAuth();
                 //handle form submission
@@ -51,13 +49,13 @@
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
                         const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
-                        // const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        // const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
+                        //const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        //const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
                         //get values from input fields if closed not checked
                         console.log(closedINPUT1)
-                        // console.log(closedINPUT2)
+                        //console.log(closedINPUT2)
                         console.log(closedINPUT3)
                         if (closedINPUT1=="CLOSED"){
                             console.log("day 1 closed")
@@ -67,14 +65,14 @@
                             document.getElementById('sideINPUT1').value="";
                             document.getElementById('dessertINPUT1').value="";
                         }
-                        // if (closedINPUT2=="CLOSED"){
-                        //     console.log("day 2 closed")
-                        //     document.getElementById('entreeINPUT2').value="";
-                        //     document.getElementById('soupINPUT2').value="";
-                        //     document.getElementById('saladINPUT2').value="";
-                        //     document.getElementById('sideINPUT2').value="";
-                        //     document.getElementById('dessertINPUT2').value="";
-                        // }
+                        /*if (closedINPUT2=="CLOSED"){
+                            console.log("day 2 closed")
+                            document.getElementById('entreeINPUT2').value="";
+                            document.getElementById('soupINPUT2').value="";
+                            document.getElementById('saladINPUT2').value="";
+                            document.getElementById('sideINPUT2').value="";
+                            document.getElementById('dessertINPUT2').value="";
+                        }*/
                         if (closedINPUT3=="CLOSED"){
                             console.log("day 3 closed")
                             document.getElementById('entreeINPUT3').value="";
@@ -83,21 +81,21 @@
                             document.getElementById('sideINPUT3').value="";
                             document.getElementById('dessertINPUT3').value="";
                         }
-                        const dateINPUT1 =      document.getElementById('dateINPUT1').value;
+                        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
                         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
                         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
                         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
                         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
                         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-                        // const dateINPUT2 =      document.getElementById('dateINPUT2').value;
-                        // const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
-                        // const soupINPUT2 =      document.getElementById('soupINPUT2').value;
-                        // const saladINPUT2 =     document.getElementById('saladINPUT2').value;
-                        // const sideINPUT2 =      document.getElementById('sideINPUT2').value;
-                        // const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
+                        /*const dateINPUT2 =      document.getElementById('dateINPUT2').value;
+                        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
+                        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
+                        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
+                        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
+                        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
                         
-                        const dateINPUT3 =      document.getElementById('dateINPUT3').value;
+                        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
                         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
                         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
@@ -112,20 +110,21 @@
                             tuesday_side: sideINPUT1,
                             tuesday_dessert: dessertINPUT1,
                             tuesday_closed: closedINPUT1,
-                            // wednesday_date: dateINPUT2,
-                            // wednesday_entree: entreeINPUT2,
-                            // wednesday_soup: soupINPUT2,
-                            // wednesday_salad: saladINPUT2,
-                            // wednesday_side: sideINPUT2,
-                            // wednesday_dessert: dessertINPUT2,
-                            // wednesday_closed: closedINPUT2,
+                            
                             thursday_date: dateINPUT3,
                             thursday_entree: entreeINPUT3,
                             thursday_soup: soupINPUT3,
                             thursday_salad: saladINPUT3,
                             thursday_side: sideINPUT3,
                             thursday_dessert: dessertINPUT3,
-                            thursday_closed: closedINPUT3,
+                            thursday_closed: closedINPUT3
+                            /*wednesday_date: dateINPUT2,
+                            wednesday_entree: entreeINPUT2,
+                            wednesday_soup: soupINPUT2,
+                            wednesday_salad: saladINPUT2,
+                            wednesday_side: sideINPUT2,
+                            wednesday_dessert: dessertINPUT2,
+                            wednesday_closed: closedINPUT2,*/
                         };
                         //generate a timestamp document name
                         const timestamp = new Date().toISOString();
@@ -167,7 +166,7 @@
                 <div class="upload-container">
                     <div class="upload-card" style="width:33%">
                         <form class="upload-form">
-                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="dateINPUT1" type="date" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
                             <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
                             <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
@@ -195,7 +194,7 @@
                     </div> -->
                     <div class="upload-card" style="width:33%">
                         <form class="upload-form">
-                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
+                            <input id="dateINPUT3" type="date" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
                             <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
                             <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
@@ -217,17 +216,14 @@
                         <button id="submitBTN" type="submit" >publish</button>
                         * publishing replaces all current menu details
                     </form>
-                    <h2 class="current-site-text"><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
                 </div>
             </main>
             <footer>
                 Maintained & Built by SICTC Computer Science Software Development <br>
                 The LunchBox <br>
                 1901 Lynch Rd, Evansville, IN 47711 <br>
-                <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
+                <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:500px;height:75px;" alt="footerSICTC"></a>
             </footer>
         </body>
 
 </html>
-
-

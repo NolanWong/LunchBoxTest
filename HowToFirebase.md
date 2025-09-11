@@ -28,5 +28,7 @@ In Data, Set up data as shown<br>
 <br>
 
 ## Authentication
-Authenication is truely simple, as the code is already up to date!<br>
-Just click Get Started in the login page, then turn on email/password.
+Turn on Google authentication.<br>
+If you need to test uploadMenu, you need to have a seperate github page to test on.<br>
+In firebase authentication, select settings => Authorised Domains, then add your github page.<br>
+After signing in for the first time, you have created an account! disable creation in settings => user actions.
