@@ -66,17 +66,17 @@
                         <textarea name="message"  rows="10"></textarea>
                         <input id="emailINPUT" type="text" placeholder="email" style="background-color:#335879">
                         <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
-                        <input type="checkbox" onclick="myFunction()">Show Password
+                        <input id="showPassBTN" type="checkbox" onclick="myFunction()">Show Password
                         <br>
                         <script>
-                        function myFunction() {
-                          var x = document.getElementById("myInput");
-                          if (x.type === "password") {
-                            x.type = "text";
-                          } else {
-                            x.type = "password";
-                          }
-                        }
+                            function myFunction() {
+                              var x = document.getElementById("passwordINPUT");
+                              if (x.type === "password") {
+                                x.type = "text";
+                              } else {
+                                x.type = "password";
+                              }
+                            }
                         </script>
                         <button id="submitBTN" type="submit" >publish</button>
                         * publishing replaces all current menu details
