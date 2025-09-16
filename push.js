@@ -142,12 +142,12 @@
                     
                     
                 }
-                function showPass(){
-                    if(document.getElementById("passwordINPUT").type == "password"){
-                        document.getElementById("passwordINPUT").type == "text"
-                    }
-                }
-                const showPassBTN = document.getElementById("showPassBTN")
+                // function showPass(){
+                //     if(document.getElementById("passwordINPUT").type == "password"){
+                //         document.getElementById("passwordINPUT").type == "text"
+                //     }
+                // }
+                // const showPassBTN = document.getElementById("showPassBTN")
                 const submitBTN = document.getElementById("submitBTN");
-                showPassBTN.addEventListener("click", showPass)
+                // showPassBTN.addEventListener("click", showPass)
                 submitBTN.addEventListener("click", submitForm);
