@@ -476,6 +476,37 @@ ul > li:before {
     margin: 1em 2em 1em 0em;
     /* margin-left:4.1em; */
   }
+  .container {
+	font-size: 24px;
+	cursor: pointer;
+    caret-color: transparent;
+	display: block;
+	display: flex;
+   	align-items: center;
+}
+
+img { padding-right: 5px;}
+
+
+/* Hide the browser's default checkbox */
+.container input {
+  display: none;
+}
+
+/* Hide the checked checkbox */
+.img-checked {
+	display: none;
+}
+
+/*  Display the checked image when checked */
+.container input:checked ~ .img-checked {
+	display: inline;
+}
+
+/*  Hide the unchecked image when checked */
+.container input:checked ~ .img-unchecked {
+	display: none;
+}
 }
 
 /* mobile view and half-desktop */
