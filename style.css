@@ -121,7 +121,21 @@ ul > li:before {
     margin-left: auto;
     margin-right: auto;
   }
-  .upload-form > input {
+  #passCon{
+    width: 75%;
+    display: flex;
+    margin-left: 50px;
+    background: #335879;
+  }
+  #passCon > input{
+    border: none;
+    width: 90%;
+    height: 47px;
+    font-size: 15px;
+    color: #ffffff;
+  }
+  .upload-form > input,
+  #passCon {
     border: 2px solid #ffffff;
     font-size: 15px;
     padding: 0 16px;
@@ -129,7 +143,12 @@ ul > li:before {
     transition: all 0.375s;
     color:#ffffff;
   }
-  .upload-form > input:hover {
+  .upload-form > input:focus,
+  #passwordINPUT:focus{
+    outline: none;
+  }
+  .upload-form > input:hover,
+  #passCon:hover {
     border: 2px solid #335879;
   }
   .upload-form > button {
@@ -484,27 +503,14 @@ ul > li:before {
   	display: flex;
      	align-items: center;
   }
-  
+
   img { padding-right: 5px;}
+
+
   
-  
-  /* Hide the browser's default checkbox */
-  .container #showPassBTN {
-    display: none;
-  }
-  
+
   /* Hide the checked checkbox */
-  .img-checked {
-  	display: none;
-  }
-  
-  /*  Display the checked image when checked */
-  .container #showPassBTN:checked ~ .img-checked {
-  	display: inline;
-  }
-  
-  /*  Hide the unchecked image when checked */
-  .container #showPassBTN:checked ~ .img-unchecked {
+  #img-checked {
   	display: none;
   }
 }
