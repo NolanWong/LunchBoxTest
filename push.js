@@ -14,6 +14,7 @@
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
                 const auth = getAuth();
+                const provider = new GoogleAuthProvider();
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
