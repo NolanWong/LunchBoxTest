@@ -8,17 +8,6 @@
             <link rel="icon" type="image/x-icon" href="content/favicon.png">
             <script src="emailScript.js"></script>
             <script type="module" name="upload process" src="push.js"></script>
-            <script>
-                function GSFunction(){
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
-                    const form = document.forms['submit-to-google-sheet']
-                    console.log("submit to google sheet btn triggered")
-                    console.log("Start of EventListener");
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    .then(response =>{ console.log('Google Sheet Success!', response)})
-                    .catch(error => console.error('Error!', error.message));
-                }
-            </script>
             </head>
             <nav>
                 <div class="nav-upload-middle">
