@@ -13,7 +13,6 @@
                 const form = document.forms['submit-to-google-sheet']
                 console.log("submit to google sheet btn triggered")
                 console.log("Start of EventListener");
-                e.preventDefault();
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response =>{ console.log('Google Sheet Success!', response)})
                 .catch(error => console.error('Error!', error.message));
