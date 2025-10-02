@@ -18,17 +18,7 @@
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
-                    // const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
-                    // const form = document.forms['submit-to-google-sheet']
-                    // console.log("submit to google sheet btn triggered")
                     
-                    // form.addEventListener('submit', e => {
-                    //     console.log("Start of EventListener");
-                    //     e.preventDefault();
-                    //     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    //     .then(response =>{ console.log('Google Sheet Success!', response)})
-                    //     .catch(error => console.error('Error!', error.message));
-                    // })
                     
                     // console.log("form submitting")
                     //event.preventDefault();
