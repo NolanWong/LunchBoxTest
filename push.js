@@ -17,7 +17,6 @@
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
-                    // 2025- This was made by the last guys. I don't know what it does and The entire program breaks when removed.
                     // const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
                     // const form = document.forms['submit-to-google-sheet']
                     // console.log("submit to google sheet btn triggered")
@@ -30,7 +29,7 @@
                     //     .catch(error => console.error('Error!', error.message));
                     // })
                     
-                    console.log("form submitting")
+                    // console.log("form submitting")
                     //event.preventDefault();
                     const email = document.getElementById('emailINPUT').value;
                     const password = document.getElementById('passwordINPUT').value;
@@ -142,12 +141,5 @@
                     
                     
                 }
-                // function showPass(){
-                //     if(document.getElementById("passwordINPUT").type == "password"){
-                //         document.getElementById("passwordINPUT").type == "text"
-                //     }
-                // }
-                // const showPassBTN = document.getElementById("showPassBTN")
                 const submitBTN = document.getElementById("submitBTN");
-                // showPassBTN.addEventListener("click", showPass)
                 submitBTN.addEventListener("click", submitForm);

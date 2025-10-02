@@ -28,14 +28,19 @@ ul > li:before {
   footer {
     background-color: #446198;
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    font-family: "Konkhmer Sleakchher";
     text-align: center;
     width: 110%;
-    height: 10em;
-    text-align: center;
     padding-top: 3em;
     padding-bottom: .5em;
     margin-top: 4em;
+  }
+  footer img {
+    width:auto;
+    height:65px;
   }
   .nav-upload-middle {
     display: inline-block;
@@ -529,16 +534,25 @@ ul > li:before {
     background-color: #99AA65;
   }
   footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #446198;
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: normal;
+    font-family: "Konkhmer Sleakchher";
     text-align: center;
     width: 110%;
-    height: 10em;
-    text-align: center;
     padding-top: 3em;
-    padding-bottom: .5em;
+    margin-left: -10px;
     margin-top: 4em;
+  }
+  footer img {
+    width:auto;
+    height:40px;
+    margin-top: 20px;
   }
   .nav-upload-middle {
     display: inline-block;
@@ -681,7 +695,9 @@ ul > li:before {
     color: #ffffff;
     border-radius: 1.25rem;
     /* background-color: #707f42; */
-    margin: 3em;
+    margin-top: 3em;
+    margin-right: 3em;
+    margin-left: 3em;
     text-align: left;
   }
   .dateCard{
@@ -691,10 +707,9 @@ ul > li:before {
     margin-bottom: 20px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     width: 100%;
-    height: 150px;
+    height: 175px;
   }
   .date {
-    display: none;
     color:#99AA65;
     font-size: 32px;
     width: 151px;
@@ -704,6 +719,8 @@ ul > li:before {
     font-weight: 400;
     line-height: 32px;
     margin:0;
+    margin-left: auto;
+    margin-right: auto;
   }
   /* For checkbox */
   .checkbox-label {
@@ -747,11 +764,13 @@ ul > li:before {
     /* border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='black'/%3E%3C/svg%3E"); */
     /* border-radius: 1.25rem; */
     margin: 1em;
-    width: 33%;
+    background-color: #FFFDE9;
+    width: 90%;
+    min-width: 390px;
+    height: 315px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* background-color: #335879; */
     color: #446198;
-    flex: 1;
     font-weight: 700;
     stroke-width: 3px;
     text-align: center;
@@ -762,7 +781,7 @@ ul > li:before {
     font-size: 32px;
   }
   .card-COMMON h2 {
-    color: #707F43;
+    color: #99AA65;
     font-size: 48px;
     font-family: "Vina Sans";
     font-weight: 400;
@@ -771,47 +790,60 @@ ul > li:before {
     letter-spacing: 1.44px;
   }
   .card-COMMON p {
-    font-size: 20px;
+    text-align: center;
     font-family: Kurale;
-    font-weight: 400;
+    font-size: 20px;
     font-style: normal;
-    margin-bottom: 10px;
+    font-weight: 400;
+    line-height: 16px;
   }
   .card-container-COMMON {
     display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    margin: auto;
     margin-top: 3em;
     margin-bottom: 3em;
-    background-color: #FFFDE9;
+    /* background-color: #FFFDE9; */
     border-radius: 9px;
     width: 90%;
-    margin: auto;
   }
   /* For WHATSINCLUDED INFO */
   .card-WHATSINCLUDED {
     border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 74px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fffde9;
     color: #335879;
     flex: 1;
     margin-left: 3em;
     margin-right: 3em;
-    min-width: 700px;
+    /* min-width: 700px; */
     text-align: left;
   }
   .card-WHATSINCLUDED h2 {
-    color: #335879;
-    font-size: 40px;
-    margin-bottom: 10px;
+    color: #446198;
     text-align: center;
+    font-family: "Vina Sans";
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.44px;
+    margin-bottom: 10px;
   }
   .card-WHATSINCLUDED span {
-    font-size: 40px;
-    margin-bottom: 10px;
+    color: #132E5E;
+    font-family: Kurale;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.8px;
   }
   .card-WHATSINCLUDED ul {
-    margin-left: 190px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-left: 0;
   }
   .card-WHATSINCLUDED .info-label {
     font-weight: bold;

@@ -75,16 +75,16 @@
                         <br>
                         <script>
                             function myFunction() {
-                            //   var passwordINPUT = document.getElementById("passwordINPUT");
+                              var passwordINPUT = document.getElementById("passwordINPUT");
                               var showPass = document.getElementById("img-unchecked");
                               var hidePass = document.getElementById("img-checked");
                               if (passwordINPUT.type === "password") {
-                                showPass.style.display="none"
-                                hidePass.style.display="inline"
+                                showPass.style.display="none";
+                                hidePass.style.display="inline";
                                 passwordINPUT.type = "text";
                               } else {
-                                showPass.style.display="inline"
-                                hidePass.style.display="none"
+                                showPass.style.display="inline";
+                                hidePass.style.display="none";
                                 passwordINPUT.type = "password";
                               }
                             }
