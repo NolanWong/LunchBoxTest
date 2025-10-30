@@ -12,6 +12,10 @@ ul > li:before {
   font-size: 50px;
   margin-right: 15px;
 }
+.download a{
+  text-decoration: none;
+  color:#FFF;
+}
 /* desktop view */
 @media (min-width: 1024px) {
   html {
