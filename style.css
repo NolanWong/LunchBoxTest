@@ -41,6 +41,7 @@ ul > li:before {
     padding-top: 3em;
     padding-bottom: .5em;
     margin-top: 4em;
+    margin-left: -100px;
   }
   .download{
     margin-left: 783px;
@@ -60,8 +61,8 @@ ul > li:before {
     padding: 0 16px;
   }
   footer img {
-    width:auto;
-    height:65px;
+    width:400px;
+    height:auto;
   }
   .nav-upload-middle {
     display: inline-block;
@@ -223,6 +224,13 @@ ul > li:before {
     margin: 3em;
     text-align: left;
   }
+  .menuTitle {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: .5px #F3F1DF;
+    padding: 0;
+    margin: 0;
+  }
   .dateCard{
     background-color: #FFFDE9;
     border: 6px solid #707F43;
@@ -273,8 +281,13 @@ ul > li:before {
   }
   /* For COMMON INFO */
   .card-COMMON {
-    border: 9px dashed #446198;
-    /* border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='black'/%3E%3C/svg%3E"); */
+    /* border: 9px dashed #446198; */
+    border-image: url("content/borderDesign.svg");
+    border-image-outset: 0;
+    border-image-repeat: no-repeat;
+    border-image-slice: 228.5;
+    border-image-width: 100%;
+    padding: 10px;
     /* border-radius: 1.25rem; */
     margin: 1em;
     width: 33%;
@@ -306,6 +319,10 @@ ul > li:before {
     font-weight: 400;
     font-style: normal;
     margin-bottom: 10px;
+  }
+  .card-COMMON img {
+    width:35%;
+    height:auto;
   }
   .card-container-COMMON {
     display: flex;
@@ -545,19 +562,14 @@ ul > li:before {
 @media (max-width: 1023px) {
   html {
     font-family: 'Source Sans Pro', sans-serif;
-    overflow-x: hidden;
   }
   body {
+    overflow-x:hidden;
     margin: 0;
     padding: 0;
-    /* display: grid; */
-    /* place-items: center; */
     background-color: #99AA65;
   }
   footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     background-color: #446198;
     color: #ffffff;
     font-weight: 400;
@@ -565,9 +577,10 @@ ul > li:before {
     font-style: normal;
     font-family: "Konkhmer Sleakchher";
     text-align: center;
-    width: 110%;
+    width: 100%;
     padding-top: 3em;
-    margin-left: -10px;
+    padding-left: 5px;
+    padding-right:5px;
     margin-top: 4em;
   }
   footer img {
@@ -584,7 +597,7 @@ ul > li:before {
     width: 600px;
   }
   .download{
-    margin-left: 125px;
+    margin-left: 85px;
     cursor: pointer;
     width: 150px;
     height: 45px;
@@ -605,13 +618,12 @@ ul > li:before {
     height: 150px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    /* padding: 0 2em;  */
+    padding-right: 5px;
   }
   #logo-container {
     text-align: center;
-    padding: 0px;
+    padding-right: 25px;
   }
   #links-container {
     display: flex;
@@ -621,14 +633,14 @@ ul > li:before {
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
-    padding: 0 1em; 
+    margin-left: auto;
+    margin-right: auto;
   }
   nav a:hover {
     text-decoration: none;
     color: #707f42;
   }
   #logo-horiz {
-    /* height: 100px; */
     width: 90%;
   }
   .banner-Container {
@@ -636,10 +648,10 @@ ul > li:before {
     display:flex;
     align-items:center;
     width:100%;
+    margin-top: 50px;
   }
   .weekly-Banner {
-    margin-top: 50px;
-    /* width: 40%; */
+    width: 90%;
   }
   /*
   /* Upload card */
@@ -677,6 +689,37 @@ ul > li:before {
     height: 50px;
     margin-left: auto;
     margin-right: auto;
+  }
+  #passCon{
+    width: 75%;
+    display: flex;
+    margin-left: auto;
+    margin-right:auto;
+    background: #335879;
+  }
+  #passCon > input{
+    border: none;
+    width: 90%;
+    height: 47px;
+    font-size: 15px;
+    color: #ffffff;
+  }
+  .upload-form > input,
+  #passCon {
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    transition: all 0.375s;
+    color:#ffffff;
+  }
+  .upload-form > input:focus,
+  #passwordINPUT:focus{
+    outline: none;
+  }
+  .upload-form > input:hover,
+  #passCon:hover {
+    border: 2px solid #335879;
   }
   .upload-form > input {
     border: 2px solid #ffffff;
@@ -721,6 +764,8 @@ ul > li:before {
   .menu-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-self: center;
     margin: 0;
     margin-bottom: 3em;
   }
@@ -729,22 +774,31 @@ ul > li:before {
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
     /* padding: 20px; */
     flex: 1;
-    width: 33%;
+    width: 100%;
     color: #ffffff;
     border-radius: 1.25rem;
     /* background-color: #707f42; */
     margin-top: 3em;
-    margin-right: 3em;
-    margin-left: 3em;
+    margin-right: auto;
+    margin-left: auto;
     text-align: left;
+  }
+  .menuTitle {
+    color: #335879;
+    font-size: 45px;
+    padding: 0px;
+    margin: 0px;
   }
   .dateCard{
     background-color: #FFFDE9;
     border: 6px solid #707F43;
     border-radius: 11px;
     margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    width: 100%;
+    width: 90%;
     height: 175px;
   }
   .date {
@@ -799,13 +853,17 @@ ul > li:before {
   /* For COMMON INFO */
   .card-COMMON {
     border: 9px dashed #446198;
-    /* border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='black'/%3E%3C/svg%3E"); */
+    border-image: url("content/borderDesign.svg");
+    border-image-outset: 0;
+    border-image-repeat: no-repeat;
+    border-image-slice: 228.5;
+    border-image-width: 100%;
+    padding: 10px;
     /* border-radius: 1.25rem; */
-    margin: 1em;
+    margin-top: 1em;
     background-color: #FFFDE9;
-    width: 90%;
-    min-width: 390px;
-    height: 315px;
+    width: 85%;
+    height: auto;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* background-color: #335879; */
     color: #446198;
@@ -816,7 +874,7 @@ ul > li:before {
   }
   .payments {
     text-align: left;
-    font-size: 32px;
+    font-size: 20px;
   }
   .card-COMMON h2 {
     color: #99AA65;
@@ -835,13 +893,18 @@ ul > li:before {
     font-weight: 400;
     line-height: 16px;
   }
+  .card-COMMON img {
+    width:35%;
+    height:auto;
+  }
   .card-container-COMMON {
     display: flex;
     flex: 1;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    /* margin-top: 3em;
+    margin-bottom: 3em; */
     /* background-color: #FFFDE9; */
     border-radius: 9px;
     width: 90%;
@@ -854,10 +917,10 @@ ul > li:before {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background-color: #fffde9;
     color: #335879;
-    flex: 1;
-    margin-left: 3em;
-    margin-right: 3em;
-    /* min-width: 700px; */
+    /* flex: 1; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     text-align: left;
   }
   .card-WHATSINCLUDED h2 {
@@ -1075,15 +1138,8 @@ ul > li:before {
   background-size:100% 100%;
   border-radius: 8px;
   width:100%;
-  height: 700px;
-  padding-top: 5px;
-}
-.menuTitle {
-  color: #335879;
-  font-size: 50px;
-  -webkit-text-stroke: .5px #F3F1DF;
-  padding: 0;
-  margin: 0;
+  height: fit-content;
+  padding: 10px;
 }
 .circle {
   width: 15px;

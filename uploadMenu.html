@@ -31,20 +31,6 @@
                             </label>
                         </form>
                     </div>
-                    <!-- <div class="upload-card" style="width:33%">
-                        <form class="upload-form">
-                            <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (JAN 1)" style="background-color:silver">
-                            <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color:silver">
-                            <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color:silver">
-                            <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color:silver">
-                            <input id="sideINPUT2" type="text" placeholder="Wednesday - Sides" style="background-color:silver">
-                            <input id="dessertINPUT2" type="text" placeholder="Wednesday - Desserts" style="background-color:silver">
-                            <label class="checkbox-label">
-                                <input id="closedCHECKBOX2" type="checkbox" class="custom-checkbox">
-                                <span class="checkbox-text">closed</span>
-                            </label>
-                        </form>
-                    </div> -->
                     <div class="upload-card" style="width:33%">
                         <form class="upload-form">
                             <input id="dateINPUT3" type="date" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
@@ -67,26 +53,20 @@
                         <input id="emailINPUT" type="text" placeholder="email" style="background-color:#335879">
                         <div id="passCon">
                             <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
-                            <div class="container">
-                                <img id="img-unchecked"  src="./PNG/Password/showPass.png" width="30px" style="filter: invert(100%);" onclick="myFunction()">
-                                <img id="img-checked"    src="./PNG/Password/hidePass.png"   width="35px" height="17px" style="filter: invert(100%);" onclick="myFunction()">
-                            </div>
+                            <img id="showImg"  src="./PNG/Password/showPass.png" width="30px" height="20px" style="filter: invert(100%);margin-top:15px;" onclick="myFunction()">
                         </div>
                         <br>
                         <script>
                             function myFunction() {
-                              var passwordINPUT = document.getElementById("passwordINPUT");
-                              var showPass = document.getElementById("img-unchecked");
-                              var hidePass = document.getElementById("img-checked");
-                              if (passwordINPUT.type === "password") {
-                                showPass.style.display="none";
-                                hidePass.style.display="inline";
-                                passwordINPUT.type = "text";
-                              } else {
-                                showPass.style.display="inline";
-                                hidePass.style.display="none";
-                                passwordINPUT.type = "password";
-                              }
+                                var passwordINPUT = document.getElementById("passwordINPUT");
+                                var showPass = document.getElementById("showImg");
+                                if (passwordINPUT.type === "password") {
+                                    showPass.src = "./PNG/Password/hidePass.png"
+                                    passwordINPUT.type = "text";
+                                } else {
+                                    showPass.src = "./PNG/Password/showPass.png"
+                                    passwordINPUT.type = "password";
+                                }
                             }
                         </script>
                         <button id="submitBTN" type="submit" >publish</button>
@@ -94,12 +74,7 @@
                     </form>
                 </div>
             </main>
-            <footer>
-                Maintained & Built by SICTC Computer Science Software Development <br>
-                The LunchBox <br>
-                1901 Lynch Rd, Evansville, IN 47711 <br>
-                <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:500px;height:75px;" alt="footerSICTC"></a>
-            </footer>
+            <script src="footer.js" defer></script>
         </body>
 
 </html>

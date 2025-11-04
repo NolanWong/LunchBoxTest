@@ -2,15 +2,15 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
         document.addEventListener("DOMContentLoaded", function () {
-             const firebaseConfig = {
-                 apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
-                 authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
-                 projectId: "lunchboxweb-7b9c1",
-                 storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
-                 messagingSenderId: "160202746545",
-                 appId: "1:160202746545:web:087529c4e7432a91329090",
-                 measurementId: "G-C2E1SK93M1"
-             };
+        const firebaseConfig = {
+                apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
+                authDomain: "lunchbox-2815d.firebaseapp.com",
+                projectId: "lunchbox-2815d",
+                storageBucket: "lunchbox-2815d.appspot.com",
+                messagingSenderId: "945076737341",
+                appId: "1:945076737341:web:4466cf8cc243b71d6be154",
+                measurementId: "G-C2CCXQ3JDN"
+                };
             //initialize firebase
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
@@ -32,13 +32,6 @@
                     updateMenuItem('side1', 'tuesday_side');
                     updateMenuItem('dessert1', 'tuesday_dessert');
                     updateMenuItem('closed1', 'tuesday_closed');
-                    /*updateMenuItem('date2', 'wednesday_date');
-                    updateMenuItem('entree2', 'wednesday_entree');
-                    updateMenuItem('soup2', 'wednesday_soup');
-                    updateMenuItem('salad2', 'wednesday_salad');
-                    updateMenuItem('side2', 'wednesday_side');
-                    updateMenuItem('dessert2', 'wednesday_dessert');
-                    updateMenuItem('closed2', 'wednesday_closed');*/
                     updateMenuItem('date3', 'thursday_date');
                     updateMenuItem('entree3', 'thursday_entree');
                     updateMenuItem('soup3', 'thursday_soup');
