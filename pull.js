@@ -3,13 +3,20 @@
         import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
         document.addEventListener("DOMContentLoaded", function () {
         const firebaseConfig = {
-                apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
-                authDomain: "lunchbox-2815d.firebaseapp.com",
-                projectId: "lunchbox-2815d",
-                storageBucket: "lunchbox-2815d.appspot.com",
-                messagingSenderId: "945076737341",
-                appId: "1:945076737341:web:4466cf8cc243b71d6be154",
-                measurementId: "G-C2CCXQ3JDN"
+                // apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
+                // authDomain: "lunchbox-2815d.firebaseapp.com",
+                // projectId: "lunchbox-2815d",
+                // storageBucket: "lunchbox-2815d.appspot.com",
+                // messagingSenderId: "945076737341",
+                // appId: "1:945076737341:web:4466cf8cc243b71d6be154",
+                // measurementId: "G-C2CCXQ3JDN"
+                apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+                authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+                projectId: "lunchboxweb-7b9c1",
+                storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+                messagingSenderId: "160202746545",
+                appId: "1:160202746545:web:087529c4e7432a91329090",
+                measurementId: "G-C2E1SK93M1"
                 };
             //initialize firebase
             const app = initializeApp(firebaseConfig);
