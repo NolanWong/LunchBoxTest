@@ -4,13 +4,20 @@ import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
-    authDomain: "lunchbox-2815d.firebaseapp.com",
-    projectId: "lunchbox-2815d",
-    storageBucket: "lunchbox-2815d.firebasestorage.app",
-    messagingSenderId: "945076737341",
-    appId: "1:945076737341:web:4466cf8cc243b71d6be154",
-    measurementId: "G-C2CCXQ3JDN"
+    // apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
+    // authDomain: "lunchbox-2815d.firebaseapp.com",
+    // projectId: "lunchbox-2815d",
+    // storageBucket: "lunchbox-2815d.firebasestorage.app",
+    // messagingSenderId: "945076737341",
+    // appId: "1:945076737341:web:4466cf8cc243b71d6be154",
+    // measurementId: "G-C2CCXQ3JDN"
+    apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+    authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+    projectId: "lunchboxweb-7b9c1",
+    storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+    messagingSenderId: "160202746545",
+    appId: "1:160202746545:web:087529c4e7432a91329090",
+    measurementId: "G-C2E1SK93M1"
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -72,7 +79,8 @@ const auth = getAuth();
         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
+        const dateINPUT3 =      new Date(document.getElementById('dateINPUT1').value)
+        dateINPUT3.setDate(dateINPUT3.getDate() + 2).toLocaleDateString('en-US', {timeZone: 'UTC'});;
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
