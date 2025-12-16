@@ -80,8 +80,8 @@ const auth = getAuth();
         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
         //gets date input 1 and adds two days.
-        const dateINPUT3 =      new Date(document.getElementById('dateINPUT1').value);
-        dateINPUT3.setDate(dateINPUT3.getDate() + 2).toLocaleString('en-US', {timeZone: 'UTC'});
+        const tempInput =      new Date(document.getElementById('dateINPUT1').value);
+        const dateINPUT3 = tempInput.setDate(tempInput.getDate() + 2).toLocaleString('en-US', {timeZone: 'UTC'});
         
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
