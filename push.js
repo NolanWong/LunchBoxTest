@@ -1,7 +1,7 @@
  //imports and configs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     // apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
@@ -22,6 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+                const provider = new GoogleAuthProvider();
 //handle form submission
                 function submitForm(event) {
     //email to it's Google Sheet
@@ -43,7 +44,7 @@ const auth = getAuth();
     //event.preventDefault();
     const email = document.getElementById('emailINPUT').value;
     const password = document.getElementById('passwordINPUT').value;
-    signInWithEmailAndPassword(auth, email, password)
+     signInWithPopup(auth, provider)
     .then((userCredential) => {
         //checkbox initializations
         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
