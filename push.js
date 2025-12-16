@@ -79,10 +79,18 @@ const auth = getAuth();
         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
-
+        
         //gets date input 1 and adds two days.
-        const tempInput =      new Date(document.getElementById('dateINPUT1').value);
-        const dateINPUT3 = tempInput.setDate(tempInput.getDate() + 2).toLocaleString('en-US', {timeZone: 'UTC'});
+        // gets date input 1
+        const tempInput = new Date(document.getElementById('dateINPUT1').value);
+
+        // add two days
+        tempInput.setDate(tempInput.getDate() + 2);
+
+        // output as a date string
+        const dateINPUT3 = tempInput.toLocaleDateString('en-US', {
+            timeZone: 'UTC'
+        }); 
         
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
